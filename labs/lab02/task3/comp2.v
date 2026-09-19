@@ -21,3 +21,21 @@ module comp2 (
   assign LT = (A <  B);
 
 endmodule
+// comp2.v
+// 2-bit unsigned magnitude comparator.
+// FIX: GT used >= , so GT and EQ were both high whenever A == B (4 of the
+// 16 combinations). Strict > is what "greater than" means.
+
+module comp2 (
+  input  [1:0] A,
+  input  [1:0] B,
+  output       GT,
+  output       LT,
+  output       EQ
+);
+
+  assign EQ = (A == B);
+  assign GT = (A >  B);
+  assign LT = (A <  B);
+
+endmodule
